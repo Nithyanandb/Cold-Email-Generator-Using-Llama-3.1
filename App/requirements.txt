@@ -1,9 +1,0 @@
-dotenv
-langchain_core
-langchain_groq
-langchain_community
-streamlit
-uuid
-chromadb
-pandas
-beautifulsoup4

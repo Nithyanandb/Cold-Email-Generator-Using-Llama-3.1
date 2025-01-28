@@ -42,6 +42,16 @@ if not collection.count():
             ids=[str(uuid.uuid4())]
         )
 
+@app.get("/")
+def root():
+    """Root endpoint to indicate service is live."""
+    return {"message": "CEG Backend Service is live!"}
+
+@app.get("/health")
+def health_check():
+    """Health check endpoint."""
+    return {"status": "healthy"}
+
 @app.post("/generate-email")
 async def generate_email(request: URLRequest):
     try:

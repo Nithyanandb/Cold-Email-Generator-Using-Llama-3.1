@@ -1,11 +1,11 @@
 import React from 'react';
-import { Globe, Zap, Shield, Users } from 'lucide-react';
+import { Globe, Zap, Shield, Users, Sparkle } from 'lucide-react';
 
 function About() {
   return (
-    <div className="space-y-12">
+    <div className="space-y-16 mt-12">
       <div className="max-w-3xl mx-auto text-center">
-        <h1 className="text-4xl font-bold mb-6">About Cold Email Pro</h1>
+        <h1 className="text-4xl font-bold mb-6">About Cold Email Generator <span className='absolute pl-2'><Sparkle></Sparkle></span></h1>
         <p className="text-zinc-400 text-lg">
           We're revolutionizing cold email outreach with AI-powered personalization and automation.
         </p>

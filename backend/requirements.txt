@@ -7,3 +7,4 @@ chromadb
 pandas
 requests
 pydantic
+beautifulsoup4

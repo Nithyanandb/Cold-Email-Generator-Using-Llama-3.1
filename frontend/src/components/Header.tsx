@@ -3,7 +3,7 @@ import { Mail, User } from 'lucide-react';
 
 function Header({ activeTab, setActiveTab, setIsSignInOpen }) {
   return (
-    <header className=" bg-black/50 backdrop-blur-xl sticky top-0 z-50 pt-8 ">
+    <header className="  sticky top-0 z-50 pt-8 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">

@@ -11,12 +11,15 @@ function EmailGenerator() {
   const [copied, setCopied] = useState(false);
   const [showUrlInput, setShowUrlInput] = useState(false);
   const emailRef = useRef(null);
+  const BACKEND_URL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:8000"
+    : "https://ceg-backend-latest.onrender.com";
+
 
   useEffect(() => {
     if (email && emailRef.current) {
-      // Smooth scroll to the email container
       emailRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      // Smooth scroll up to the top of the page
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, [email]);
@@ -32,8 +35,7 @@ function EmailGenerator() {
     setShowUrlInput(false);
 
     try {
-      const response = await axios.post(
-        `http://localhost:8000/generate-email`,
+      const response = await axios.post(`${BACKEND_URL}/generate-email`,
         { url },
         {
           headers: {
@@ -71,6 +73,8 @@ function EmailGenerator() {
     setShowUrlInput(false);
   };
 
+
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -81,9 +85,9 @@ function EmailGenerator() {
         {!email && (
           <motion.div
             initial={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
+            exit={{ opacity: 0, y: -100 }}
             transition={{ duration: 0.5 }}
-            className="flex-1 flex items-center justify-center p-2"
+            className="flex-1 flex items-center justify-center p-4"
           >
             <div className="text-center space-y-6 max-w-3xl mx-auto">
               <motion.div
@@ -137,8 +141,9 @@ function EmailGenerator() {
                         value={url}
                         onChange={(e) => setUrl(e.target.value)}
                         placeholder="Paste your job posting URL here..."
-                        className="w-full pl-12 pr-12 py-4 bg-black/50 border border-gray-800 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all text-lg"
+                        className="w-full pl-12 pr-12 py-4 bg-black rounded-xl text-white placeholder-gray-500 transition-all text-lg border-none outline-none"
                       />
+
                       <button
                         onClick={() => setShowUrlInput(false)}
                         className="absolute inset-y-0 right-4 flex items-center"
@@ -151,12 +156,12 @@ function EmailGenerator() {
               )}
             </AnimatePresence>
 
-            <div className="flex items-center gap-4">
+            <div className="mt-16 flex items-center gap-4">
               <motion.button
                 onClick={generateEmail}
                 disabled={loading}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1 }}
+                whileTap={{ scale: 0 }}
                 className="px-8 py-4 bg-white text-black font-medium rounded-xl hover:opacity-90 transition-all focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-900 flex items-center justify-center gap-2 disabled:opacity-50 whitespace-nowrap text-lg shadow-lg"
               >
                 {loading ? (
@@ -174,8 +179,8 @@ function EmailGenerator() {
               {email && (
                 <motion.button
                   onClick={handleRefresh}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1 }}
+                  whileTap={{ scale: 0 }}
                   className="p-4 bg-gray-800 text-white rounded-xl hover:bg-gray-700 transition-all focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-900 shadow-lg"
                 >
                   <RefreshCw size={20} />
@@ -214,7 +219,7 @@ function EmailGenerator() {
                           onClick={handleCopy}
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
-                          className="flex items-center gap-2 px-4 py-2 bg-gray-800/50 rounded-lg hover:bg-gray-700/50 transition-colors backdrop-blur-sm"
+                          className="flex items-center gap-2 px-8 py-2 bg-gray-800/50 rounded-lg hover:bg-gray-700/50 transition-colors backdrop-blur-sm"
                         >
                           {copied ? (
                             <>
@@ -234,7 +239,7 @@ function EmailGenerator() {
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ delay: 0.4 }}
-                          className="bg-black/30 rounded-xl p-6 font-mono text-base text-gray-300 border border-gray-800/50 shadow-lg"
+                          className="bg-black/30 rounded-xl p-6 text-base text-gray-300 border border-gray-800/50 shadow-lg"
                         >
                           <TypeAnimation
                             sequence={[email]}

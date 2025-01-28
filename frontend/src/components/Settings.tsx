@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Settings, Copy, CheckCircle } from 'lucide-react';
 
 function Setting() {
-  const [apiKey, setApiKey] = useState('sk-...'); // Simulated API key
+  const [apiKey, setApiKey] = useState(''); // Simulated API key
   const [copied, setCopied] = useState(false);
 
   const copyApiKey = () => {
@@ -20,11 +20,12 @@ function Setting() {
       </h2>
       <div className="space-y-6">
         <div>
-          <label className="block text-sm font-medium text-zinc-300 mb-2">
+          <label className="block text-sm font-medium text-zinc-300 mb-2" >
             Your API Key
           </label>
           <div className="flex items-center gap-2">
             <input
+              placeholder="Login to Generate"
               type="text"
               value={apiKey}
               readOnly

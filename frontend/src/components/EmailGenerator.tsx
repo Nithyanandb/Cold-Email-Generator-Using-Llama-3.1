@@ -8,24 +8,36 @@ function EmailGenerator() {
   const [loading, setLoading] = useState(false);
 
   const generateEmail = async () => {
+    if (!url.trim()) {
+      alert('Please enter a valid URL.');
+      return;
+    }
+
     setLoading(true);
+    setEmail(''); // Clear previous email
+
     try {
-      const response = await axios.post('https://cold-email-generator-using-llama-3-1.onrender.com/generate-email', {
-        url: url,
-      });
+      const response = await axios.post(
+        'https://cold-email-generator-using-llama-3-1.onrender.com/generate-email',
+        { url }
+      );
       setEmail(response.data.email);
     } catch (error) {
       console.error('Error generating email:', error);
-      alert('Error generating email. Please check the URL and try again.');
+      if (axios.isAxiosError(error)) {
+        alert(`Error generating email: ${error.response?.data?.detail || error.message}`);
+      } else {
+        alert('Error generating email. Please check the URL and try again.');
+      }
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (
     <div className="space-y-8">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <div className="bg-zinc-900/50 p-6 rounded-xl border border-zinc-800 hover:border-blue-500/50 transition-colors group">
-     
           <h3 className="text-lg font-semibold mb-2">Email Generation</h3>
           <p className="text-zinc-400">Generate personalized cold emails using AI technology</p>
         </div>

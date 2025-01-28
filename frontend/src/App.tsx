@@ -1,12 +1,12 @@
 
 import { useState } from 'react';
-import About from './About';
+import About from './components/About';
 import Header from './components/Header';
-import Docs from './Docs ';
-import EmailGenerator from './EmailGenerator';
-import Pricing from './Pricing';
-import AuthModal from './AuthModal';
-import Setting from './Settings';
+import Docs from './components/Docs ';
+import EmailGenerator from './components/EmailGenerator';
+import Pricing from './components/Pricing';
+import AuthModal from './components/AuthModal';
+import Setting from './components/Settings';
 
 function App() {
   const [activeTab, setActiveTab] = useState('email');

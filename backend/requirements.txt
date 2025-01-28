@@ -1,9 +1,9 @@
 fastapi
 uvicorn
-pydantic
 langchain-groq
 langchain-community
 langchain-core
 chromadb
 pandas
 requests
+pydantic

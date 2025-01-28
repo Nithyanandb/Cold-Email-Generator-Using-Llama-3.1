@@ -31,7 +31,7 @@ function Pricing() {
               Email support
             </li>
           </ul>
-          <button className="w-full py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+          <button className="w-full py-2 bg-white text-black rounded-lg hover:bg-blue-600 transition-colors">
             Get Started
           </button>
         </div>
@@ -60,7 +60,7 @@ function Pricing() {
               API access
             </li>
           </ul>
-          <button className="w-full py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+          <button className="w-full py-2 bg-white text-black rounded-lg hover:bg-blue-600 transition-colors">
             Get Started
           </button>
         </div>
@@ -88,7 +88,7 @@ function Pricing() {
               Advanced analytics
             </li>
           </ul>
-          <button className="w-full py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+          <button className="w-full py-2 bg-white text-black rounded-lg hover:bg-blue-600 transition-colors">
             Contact Sales
           </button>
         </div>

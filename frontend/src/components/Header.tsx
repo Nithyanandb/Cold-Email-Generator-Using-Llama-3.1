@@ -7,7 +7,7 @@ function Header({ activeTab, setActiveTab, setIsSignInOpen }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-2">
-            <Mail className="text-blue-500" size={24} />
+            <Mail className="text-white" size={30} />
             <span className="font-bold text-xl">Cold Email Pro</span>
           </div>
           <nav className="hidden md:flex items-center space-x-4">
@@ -15,7 +15,7 @@ function Header({ activeTab, setActiveTab, setIsSignInOpen }) {
               onClick={() => setActiveTab('email')}
               className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                 activeTab === 'email'
-                  ? 'bg-blue-500 text-white'
+                  ? 'bg-white text-black'
                   : 'text-zinc-300 hover:bg-zinc-800'
               }`}
             >
@@ -25,7 +25,7 @@ function Header({ activeTab, setActiveTab, setIsSignInOpen }) {
               onClick={() => setActiveTab('about')}
               className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                 activeTab === 'about'
-                  ? 'bg-blue-500 text-white'
+                  ? 'bg-white text-black'
                   : 'text-zinc-300 hover:bg-zinc-800'
               }`}
             >
@@ -35,7 +35,7 @@ function Header({ activeTab, setActiveTab, setIsSignInOpen }) {
               onClick={() => setActiveTab('pricing')}
               className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                 activeTab === 'pricing'
-                  ? 'bg-blue-500 text-white'
+                  ? 'bg-white text-black'
                   : 'text-zinc-300 hover:bg-zinc-800'
               }`}
             >
@@ -45,7 +45,7 @@ function Header({ activeTab, setActiveTab, setIsSignInOpen }) {
               onClick={() => setActiveTab('docs')}
               className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                 activeTab === 'docs'
-                  ? 'bg-blue-500 text-white'
+                  ? 'bg-white text-black'
                   : 'text-zinc-300 hover:bg-zinc-800'
               }`}
             >
@@ -55,7 +55,7 @@ function Header({ activeTab, setActiveTab, setIsSignInOpen }) {
               onClick={() => setActiveTab('settings')}
               className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                 activeTab === 'settings'
-                  ? 'bg-blue-500 text-white'
+                  ? 'bg-white text-black'
                   : 'text-zinc-300 hover:bg-zinc-800'
               }`}
             >
@@ -63,7 +63,7 @@ function Header({ activeTab, setActiveTab, setIsSignInOpen }) {
             </button>
             <button
               onClick={() => setIsSignInOpen(true)}
-              className="ml-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors flex items-center gap-2"
+              className="ml-4 px-4 py-2 bg-white text-black rounded-lg hover:bg-blue-600 transition-colors flex items-center gap-2"
             >
               <User size={16} />
               Sign In

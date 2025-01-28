@@ -41,7 +41,7 @@ function AuthModal({ isSignInOpen, setIsSignInOpen, handleSignIn, signInEmail, s
           </div>
           <button
             type="submit"
-            className="w-full py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors flex items-center justify-center gap-2"
+            className="w-full py-3 bg-white text-black rounded-lg hover:bg-blue-600 transition-colors flex items-center justify-center gap-2"
           >
             <Lock size={16} />
             Sign In

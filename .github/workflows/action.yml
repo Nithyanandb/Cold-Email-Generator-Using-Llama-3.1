@@ -1,4 +1,4 @@
-name: Run Cold-Email-Generator Backend
+name: Run main.py
 
 on:
   schedule:
@@ -25,7 +25,7 @@ jobs:
       - name: Execute Python script
         env:
           SOME_SECRET: ${{ secrets.SOME_SECRET }} # Pass any secrets if needed
-        run: python backend/main.py # Adjust the path to main.py relative to the repository root
+        run: python main.py
 
       - name: Commit files
         run: |

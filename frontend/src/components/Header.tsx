@@ -3,12 +3,12 @@ import { Mail, User } from 'lucide-react';
 
 function Header({ activeTab, setActiveTab, setIsSignInOpen }) {
   return (
-    <header className="border-b border-zinc-800 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
+    <header className=" bg-black/50 backdrop-blur-xl sticky top-0 z-50 pt-8 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Mail className="text-white" size={30} />
-            <span className="font-bold text-xl">Cold Email Pro</span>
+           
+            <span className="font-bold text-xl">CEG</span>
           </div>
           <nav className="hidden md:flex items-center space-x-4">
             <button

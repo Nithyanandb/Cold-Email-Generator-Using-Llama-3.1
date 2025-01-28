@@ -4,7 +4,6 @@ import About from './components/About';
 import Header from './components/Header';
 import Docs from './components/Docs ';
 import EmailGenerator from './components/EmailGenerator';
-import Pricing from './components/Pricing';
 import AuthModal from './components/AuthModal';
 import Setting from './components/Settings';
 
@@ -26,7 +25,6 @@ function App() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {activeTab === 'email' && <EmailGenerator />}
         {activeTab === 'about' && <About />}
-        {activeTab === 'pricing' && <Pricing />}
         {activeTab === 'docs' && <Docs />}
         {activeTab === 'settings' && <Setting />}
       </main>

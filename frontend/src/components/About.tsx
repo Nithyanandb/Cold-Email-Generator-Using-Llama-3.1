@@ -11,28 +11,7 @@ function About() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="bg-zinc-900/50 p-6 rounded-xl border border-zinc-800">
-          <Globe className="text-blue-500 mb-4" size={24} />
-          <h3 className="text-lg font-semibold mb-2">Global Reach</h3>
-          <p className="text-zinc-400">Connect with professionals worldwide</p>
-        </div>
-        <div className="bg-zinc-900/50 p-6 rounded-xl border border-zinc-800">
-          <Zap className="text-blue-500 mb-4" size={24} />
-          <h3 className="text-lg font-semibold mb-2">Lightning Fast</h3>
-          <p className="text-zinc-400">Generate emails in seconds</p>
-        </div>
-        <div className="bg-zinc-900/50 p-6 rounded-xl border border-zinc-800">
-          <Shield className="text-blue-500 mb-4" size={24} />
-          <h3 className="text-lg font-semibold mb-2">Secure & Private</h3>
-          <p className="text-zinc-400">Enterprise-grade security</p>
-        </div>
-        <div className="bg-zinc-900/50 p-6 rounded-xl border border-zinc-800">
-          <Users className="text-blue-500 mb-4" size={24} />
-          <h3 className="text-lg font-semibold mb-2">Team Ready</h3>
-          <p className="text-zinc-400">Collaborate with your team</p>
-        </div>
-      </div>
+   
 
       <div className="bg-zinc-900/50 rounded-xl border border-zinc-800 p-8">
         <h2 className="text-2xl font-bold mb-6">Our Mission</h2>

@@ -6,47 +6,26 @@ function EmailGenerator() {
   const [url, setUrl] = useState('');
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
-  const [streaming, setStreaming] = useState(false);
 
   const generateEmail = async () => {
     setLoading(true);
-    setStreaming(true);
-    setEmail(''); // Clear previous email
-
     try {
-      const response = await axios.post(
-        'https://cold-email-generator-using-llama-3-1.onrender.com/generate-email',
-        { url },
-        { responseType: 'stream' } // Ensure the backend supports streaming
-      );
-
-      const reader = response.data.getReader();
-      const decoder = new TextDecoder();
-      let accumulatedEmail = '';
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) {
-          setStreaming(false);
-          break;
-        }
-
-        const chunk = decoder.decode(value, { stream: true });
-        accumulatedEmail += chunk;
-        setEmail(accumulatedEmail); // Update email state with each chunk
-      }
+      const response = await axios.post('https://cold-email-generator-using-llama-3-1.onrender.com/generate-email', {
+        url: url,
+      });
+      setEmail(response.data.email);
     } catch (error) {
       console.error('Error generating email:', error);
       alert('Error generating email. Please check the URL and try again.');
-    } finally {
-      setLoading(false);
     }
+    setLoading(false);
   };
 
   return (
     <div className="space-y-8">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <div className="bg-zinc-900/50 p-6 rounded-xl border border-zinc-800 hover:border-blue-500/50 transition-colors group">
+     
           <h3 className="text-lg font-semibold mb-2">Email Generation</h3>
           <p className="text-zinc-400">Generate personalized cold emails using AI technology</p>
         </div>
@@ -74,7 +53,7 @@ function EmailGenerator() {
               {loading ? (
                 <>
                   <Sparkles className="animate-spin" size={20} />
-                  {streaming ? 'Streaming...' : 'Generating...'}
+                  Generating...
                 </>
               ) : (
                 <>

@@ -14,7 +14,7 @@ function EmailGenerator() {
   const BACKEND_URL =
   process.env.NODE_ENV === "development"
     ? "http://localhost:8000"
-    : "https://ceg-backend-latest.onrender.com";
+    : "https://629dfaba-51a3-441a-824c-aec031b15f9a-00-1izh6s7c06t05.sisko.replit.dev";
 
 
   useEffect(() => {

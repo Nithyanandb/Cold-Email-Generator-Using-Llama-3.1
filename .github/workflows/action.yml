@@ -9,24 +9,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+      # Step 1: Checkout the repository
       - name: Checkout repo content
         uses: actions/checkout@v2 # Checkout the repository content to GitHub runner
 
+      # Step 2: Set up Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9' # Install the Python version needed
+          python-version: '3.9' # Install Python 3.9
 
+      # Step 3: Install Python dependencies
       - name: Install Python packages
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      # Step 4: Run the Python script (main.py)
       - name: Execute Python script
         env:
           SOME_SECRET: ${{ secrets.SOME_SECRET }} # Pass any secrets if needed
-        run: python backend/main.py # Adjust the path to main.py relative to the repository root
+        run: |
+          python backend/main.py # Adjust the path to main.py relative to the repository root
 
+      # Step 5: Commit any changes made by the script
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
@@ -34,6 +40,7 @@ jobs:
           git add -A
           git diff-index --quiet HEAD || (git commit -a -m "Updated logs" --allow-empty)
 
+      # Step 6: Push changes to the repository
       - name: Push changes
         uses: ad-m/github-push-action@v0.6.0
         with:
